@@ -1,5 +1,47 @@
 #include"SeqList.h"
 
+
+seqListNode* InsertionSort(seqListNode* head)
+{
+	if (head == NULL || head->next == NULL)
+		return head;
+	seqListNode* NewHead = (seqListNode*)malloc(sizeof(seqListNode));
+	NewHead->next = head;
+	seqListNode* key = NewHead->next->next;
+	seqListNode* keyPrev = NewHead->next;
+	while (key != NULL)
+	{
+		seqListNode* cur = NewHead->next;
+		seqListNode* prev = NewHead;
+		while (cur != key)
+		{
+			if (cur->val > key->val)
+			{
+				keyPrev->next = key->next;
+				key->next = cur;
+				prev->next = key;
+				key = keyPrev->next;
+				break;
+			}
+			else
+			{
+				cur = cur->next;
+				prev = prev->next;
+			}
+		}
+		if (cur == key)
+		{
+			key = key->next;
+			keyPrev = keyPrev->next;
+		}
+	}
+	head = NewHead->next;
+	free(NewHead);
+	return head;
+}
+
+
+
 void seqListPrint(const seqListNode** node)
 {
 	if (*node)
