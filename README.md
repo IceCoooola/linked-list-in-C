@@ -34,3 +34,6 @@ destroy.
 find.
   - find corresponding element.
   - if no found then print no found.
+
+Insertion sort.
+  - sort the linked list in ascending order. 
