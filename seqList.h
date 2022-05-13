@@ -20,4 +20,4 @@ void seqListInsert(seqListNode**, dataType, dataType);
 void seqListErase(seqListNode**, dataType);
 void seqListDestroy(seqListNode**);
 seqListNode* seqListFind(seqListNode*, dataType data);
-
+seqListNode* InsertionSort(seqListNode* head);
